@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nnamdi Eneje | Portfolio</title>
+
+  <!-- CLEAN MODERN FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICONS -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    /* RESET */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:
+      linear-gradient(135deg, #090414, #140824, #1d1033, #2b1250);
+      color:white;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* GLOW EFFECT */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#8b5cf633;
+      filter:blur(120px);
+      top:-100px;
+      right:-100px;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:400px;
+      height:400px;
+      background:#c084fc22;
+      filter:blur(120px);
+      bottom:-100px;
+      left:-100px;
+      z-index:-1;
+    }
+
+    /* NAVIGATION */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 10%;
+      background:rgba(10, 5, 20, 0.6);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:1.7rem;
+      font-weight:700;
+      background:linear-gradient(to right, #d8b4fe, #8b5cf6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:#d1d5db;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav ul li a:hover{
+      color:#c084fc;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 10%;
+    }
+
+    .hero-content h1{
+      font-size:4.5rem;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-content span{
+      background:linear-gradient(to right, #c084fc, #8b5cf6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-content p{
+      max-width:700px;
+      margin:auto;
+      color:#cbd5e1;
+      font-size:1.1rem;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:40px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .primary-btn{
+      background:linear-gradient(to right, #8b5cf6, #c084fc);
+      color:white;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 25px rgba(192,132,252,0.5);
+    }
+
+    .secondary-btn{
+      border:1px solid #8b5cf6;
+      color:#d8b4fe;
+    }
+
+    .secondary-btn:hover{
+      background:#8b5cf6;
+      color:white;
+    }
+
+    /* GENERAL SECTION */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.7rem;
+      margin-bottom:60px;
+      background:linear-gradient(to right, #d8b4fe, #8b5cf6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    /* CARDS */
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 30px rgba(139,92,246,0.25);
+    }
+
+    /* BIO */
+
+    .bio-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .bio-text{
+      padding:40px;
+    }
+
+    .bio-text p{
+      color:#d1d5db;
+      margin-top:15px;
+    }
+
+    .bio-image img{
+      width:100%;
+      border-radius:25px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:25px;
+    }
+
+    .skill-card{
+      text-align:center;
+      padding:35px;
+    }
+
+    .skill-card i{
+      font-size:3rem;
+      margin-bottom:20px;
+      color:#c084fc;
+    }
+
+    .skill-card p{
+      color:#cbd5e1;
+      margin-top:10px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .project-card h3{
+      margin-bottom:15px;
+      color:#e9d5ff;
+    }
+
+    .project-card p{
+      color:#cbd5e1;
+      margin-bottom:25px;
+    }
+
+    /* OPEN PROJECT BUTTON */
+
+    .project-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 20px;
+      border-radius:15px;
+      background:linear-gradient(to right, #7c3aed, #a855f7);
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .project-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px rgba(168,85,247,0.5);
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .social-icons{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:25px;
+    }
+
+    .social-icons a{
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:1.5rem;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      background:#8b5cf6;
+      transform:translateY(-5px);
+      box-shadow:0 0 25px rgba(168,85,247,0.4);
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero-content h1{
+        font-size:3rem;
+      }
+
+      .bio-container{
+        grid-template-columns:1fr;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">NE.</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        Building The Future <br>
+        <span>One Website At A Time</span>
+      </h1>
+
+      <p>
+        I’m Nnamdi Eneje, an aspiring web developer focused on
+        futuristic interfaces, clean user experiences, and creative
+        digital design. This portfolio highlights my projects,
+        growth, and journey through web development.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn primary-btn">
+          Explore Projects
+        </a>
+
+        <a href="https://linkedin.com/in/nnamdi-eneje-8b73b5191"
+        target="_blank"
+        class="btn secondary-btn">
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BIO -->
+
+  <section id="bio">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="bio-container">
+
+      <div class="bio-text card">
+
+        <h3>Future Web Developer</h3>
+
+        <p>
+          I am a college student learning modern web development,
+          UI/UX design, and creative digital experiences.
+          I enjoy designing futuristic websites that combine
+          aesthetics with functionality.
+        </p>
+
+        <p>
+          My goal is to create innovative and interactive
+          applications while continuously improving my coding,
+          design, and development skills.
+        </p>
+
+      </div>
+
+      <div class="bio-image">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+        alt="Coding setup">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Structuring modern websites.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Creating stylish responsive layouts.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-code"></i>
+        <h3>UI Design</h3>
+        <p>Building futuristic interfaces.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Development</h3>
+        <p>Learning modern web technologies.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card card">
+
+        <h3>Portfolio Website</h3>
+
+        <p>
+          A futuristic portfolio website showcasing my
+          projects, skills, and development journey.
+        </p>
+
+        <!-- OPEN PROJECT LINK -->
+
+        <a href="projects/portfolio-project/index.html"
+        class="project-btn">
+
+          <i class="fa-solid fa-folder-open"></i>
+
+          Open Project
+
+        </a>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card card">
+
+        <h3>Class Web Project</h3>
+
+        <p>
+          Future web development coursework and
+          responsive website projects.
+        </p>
+
+        <a href="projects/class-project/index.html"
+        class="project-btn">
+
+          <i class="fa-solid fa-folder-open"></i>
+
+          Open Project
+
+        </a>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+
+      <div class="project-card card">
+
+        <h3>Creative UI Concepts</h3>
+
+        <p>
+          Experimental designs focused on futuristic
+          interactions and animations.
+        </p>
+
+        <a href="projects/ui-concepts/index.html"
+        class="project-btn">
+
+          <i class="fa-solid fa-folder-open"></i>
+
+          Open Project
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="section-title">Connect With Me</h2>
+
+    <p>
+      Follow my journey and connect with me as I continue
+      building new web experiences and projects!
+    </p>
+
+    <div class="social-icons">
+
+      <a href="https://linkedin.com/in/nnamdi-eneje-8b73b5191"
+      target="_blank">
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+      </a>
+
+      <a href="#">
+
+        <i class="fa-brands fa-github"></i>
+
+      </a>
+
+      <a href="#">
+
+        <i class="fa-solid fa-envelope"></i>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Nnamdi Eneje • Designed & Developed By Nnamdi E
+    </p>
+
+  </footer>
+
+</body>
+</html>

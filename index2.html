@@ -7,16 +7,20 @@
   <title>Nnamdi Eneje | Portfolio</title>
 
   <!-- GOOGLE FONTS -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- ICONS -->
+
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
+
+    /* RESET */
 
     *{
       margin:0;
@@ -35,23 +39,23 @@
       min-height:100vh;
       position:relative;
 
-      /* DARK PURPLE + WARM RETRO BACKGROUND */
+      /* DARK PURPLE NOSTALGIC BACKGROUND */
 
       background:
       linear-gradient(
         180deg,
-        #120313 0%,
-        #1e0824 18%,
-        #2c1038 38%,
-        #44204f 60%,
-        #5b2d5e 80%,
-        #6d3d62 100%
+        #0d0310 0%,
+        #1b0822 15%,
+        #2d1036 35%,
+        #44204f 55%,
+        #5b2d5e 78%,
+        #70405f 100%
       );
 
       background-attachment:fixed;
     }
 
-    /* REALISTIC CHEETAH PRINT */
+    /* CHEETAH PRINT OVERLAY */
 
     body::before{
       content:"";
@@ -62,21 +66,21 @@
 
       radial-gradient(
         ellipse 24px 17px at center,
-        rgba(12,6,3,.88) 0%,
+        rgba(8,4,2,.95) 0%,
         rgba(20,10,5,.92) 55%,
         transparent 58%
       ),
 
       radial-gradient(
         ellipse 18px 13px at center,
-        rgba(40,18,8,.70) 0%,
+        rgba(35,15,8,.75) 0%,
         rgba(25,10,5,.88) 60%,
         transparent 63%
       ),
 
       radial-gradient(
         ellipse 14px 10px at center,
-        rgba(15,8,4,.75) 0%,
+        rgba(12,6,3,.80) 0%,
         rgba(10,5,3,.90) 60%,
         transparent 64%
       );
@@ -95,7 +99,7 @@
 
       mix-blend-mode:multiply;
 
-      filter:blur(.3px);
+      filter:blur(.2px);
 
       pointer-events:none;
 
@@ -285,7 +289,7 @@
       color:#f8edf5;
     }
 
-    /* SECTIONS */
+    /* GENERAL SECTIONS */
 
     section{
       padding:100px 10%;
@@ -595,6 +599,222 @@
     </div>
 
   </section>
+
+  <!-- BIO -->
+
+  <section id="bio">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="bio-container">
+
+      <div class="bio-text card">
+
+        <h3>Future Web Developer</h3>
+
+        <p>
+          I am a college student learning modern web development,
+          UI/UX design, and creative digital experiences.
+          I enjoy designing futuristic websites that combine
+          aesthetics with functionality.
+        </p>
+
+        <p>
+          My goal is to create innovative and interactive
+          applications while continuously improving my coding,
+          design, and development skills.
+        </p>
+
+      </div>
+
+      <div class="bio-image">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+        alt="Coding setup">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Structuring modern websites.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Creating stylish responsive layouts.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-code"></i>
+        <h3>UI Design</h3>
+        <p>Building immersive interfaces.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Development</h3>
+        <p>Learning modern web technologies.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card card">
+
+        <div class="project-image">
+          <img src="images/project1.jpg" alt="Portfolio Project">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Portfolio Website</h3>
+
+          <p>
+            A responsive portfolio website showcasing my
+            projects, skills, and development journey.
+          </p>
+
+          <div class="project-links">
+
+            <a href="projects/portfolio-project/index.html"
+            target="_blank"
+            class="project-btn">
+
+              <i class="fa-solid fa-folder-open"></i>
+              Open Project
+
+            </a>
+
+            <a href="https://github.com/Nnamdi222"
+            target="_blank"
+            class="project-btn github-btn">
+
+              <i class="fa-brands fa-github"></i>
+              Source Code
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card card">
+
+        <div class="project-image">
+          <img src="images/project2.jpg" alt="Class Project">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Class Web Project</h3>
+
+          <p>
+            Future web development coursework and
+            responsive website projects.
+          </p>
+
+          <div class="project-links">
+
+            <a href="projects/class-project/index.html"
+            target="_blank"
+            class="project-btn">
+
+              <i class="fa-solid fa-folder-open"></i>
+              Open Project
+
+            </a>
+
+            <a href="#"
+            class="project-btn github-btn">
+
+              <i class="fa-solid fa-link"></i>
+              Live Demo
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="section-title">Connect With Me</h2>
+
+    <p>
+      Follow my journey and connect with me as I continue
+      building new web experiences and projects!
+    </p>
+
+    <div class="social-icons">
+
+      <a href="https://linkedin.com/in/nnamdi-eneje-8b73b5191"
+      target="_blank">
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+      </a>
+
+      <a href="https://github.com/Nnamdi222"
+      target="_blank">
+
+        <i class="fa-brands fa-github"></i>
+
+      </a>
+
+      <a href="mailto:youremail@example.com">
+
+        <i class="fa-solid fa-envelope"></i>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Nnamdi Eneje • Designed & Developed By Nnamdi E
+    </p>
+
+  </footer>
 
 </body>
 </html>

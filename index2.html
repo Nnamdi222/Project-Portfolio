@@ -1,1 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <title>Nnamdi Eneje | Retro Portfolio</title>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ICONS -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      color:white;
+      overflow-x:hidden;
+      background:
+      radial-gradient(circle at top, #ff00aa33, transparent 30%),
+      radial-gradient(circle at bottom, #00d9ff33, transparent 30%),
+      linear-gradient(135deg,#120018,#240046,#3c096c,#5a189a);
+      min-height:100vh;
+      position:relative;
+    }
+
+    /* LEOPARD PRINT OVERLAY */
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,170,0,.14) 0 18px, transparent 19px),
+      radial-gradient(circle at 80% 40%, rgba(0,0,0,.28) 0 15px, transparent 16px),
+      radial-gradient(circle at 40% 80%, rgba(255,190,80,.13) 0 20px, transparent 21px),
+      radial-gradient(circle at 70% 70%, rgba(0,0,0,.22) 0 12px, transparent 13px);
+      background-size:250px 250px;
+      opacity:.35;
+      pointer-events:none;
+      z-index:-1;
+      animation:fadePrint 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadePrint{
+      from{
+        opacity:.15;
+      }
+      to{
+        opacity:.38;
+      }
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAV */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+
+      background:rgba(0,0,0,.35);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .logo{
+      font-family:'Orbitron', sans-serif;
+      font-size:2rem;
+      font-weight:800;
+      color:#ff4fd8;
+      text-shadow:
+      0 0 10px #ff4fd8,
+      0 0 20px #ff4fd8,
+      0 0 40px #ff4fd8;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      font-weight:600;
+      color:#ffffffcc;
+      transition:.3s;
+    }
+
+    nav ul li a:hover{
+      color:#00e5ff;
+      text-shadow:0 0 12px #00e5ff;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:140px 10%;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:
+      radial-gradient(circle, rgba(255,0,170,.25), transparent 60%);
+      z-index:-1;
+      filter:blur(40px);
+    }
+
+    .hero-content{
+      max-width:1000px;
+    }
+
+    .hero-content h1{
+      font-family:'Orbitron', sans-serif;
+      font-size:5.2rem;
+      line-height:1;
+      margin-bottom:25px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+
+      text-shadow:
+      0 0 12px #ff00cc,
+      0 0 25px #ff00cc,
+      0 0 45px #00d9ff;
+    }
+
+    .hero-content span{
+      color:#00e5ff;
+    }
+
+    .hero-content p{
+      max-width:760px;
+      margin:auto;
+      font-size:1.2rem;
+      color:#f1f5f9;
+      line-height:1.8;
+      margin-bottom:45px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 32px;
+      border-radius:50px;
+      font-weight:700;
+      transition:.3s;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
+    }
+
+    .primary-btn{
+      background:linear-gradient(to right,#ff00aa,#ff6b00);
+      color:white;
+      box-shadow:0 0 25px rgba(255,0,170,.5);
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-5px) scale(1.03);
+    }
+
+    .secondary-btn{
+      background:transparent;
+      border:2px solid #00e5ff;
+      color:#00e5ff;
+    }
+
+    .secondary-btn:hover{
+      background:#00e5ff;
+      color:black;
+      box-shadow:0 0 20px #00e5ff;
+    }
+
+    /* HOME FEED */
+
+    .home-feed{
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .feed-box{
+      padding:28px;
+      border-radius:25px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(10px);
+      transition:.3s;
+      text-align:left;
+    }
+
+    .feed-box:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 30px rgba(255,0,170,.4);
+    }
+
+    .feed-box h3{
+      margin-bottom:12px;
+      color:#00e5ff;
+      font-family:'Orbitron', sans-serif;
+    }
+
+    .feed-box p{
+      font-size:.95rem;
+      line-height:1.6;
+    }
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-family:'Orbitron', sans-serif;
+      font-size:3rem;
+      margin-bottom:60px;
+      color:#ff4fd8;
+      text-shadow:0 0 15px #ff4fd8;
+    }
+
+    .card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:30px;
+      backdrop-filter:blur(12px);
+    }
+
+    /* BIO */
+
+    .bio-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .bio-text{
+      padding:40px;
+    }
+
+    .bio-text h3{
+      margin-bottom:20px;
+      color:#00e5ff;
+      font-size:1.7rem;
+    }
+
+    .bio-text p{
+      line-height:1.8;
+      margin-bottom:18px;
+    }
+
+    .bio-image img{
+      width:100%;
+      border-radius:30px;
+      border:3px solid #ff00aa55;
+      box-shadow:0 0 35px rgba(255,0,170,.35);
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+    }
+
+    .skill-card{
+      padding:35px;
+      text-align:center;
+      transition:.3s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .skill-card i{
+      font-size:3.5rem;
+      margin-bottom:20px;
+      color:#00e5ff;
+      text-shadow:0 0 20px #00e5ff;
+    }
+
+    .skill-card h3{
+      margin-bottom:10px;
+      color:#ff66d9;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      overflow:hidden;
+      transition:.3s;
+    }
+
+    .project-image img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:28px;
+    }
+
+    .project-content h3{
+      margin-bottom:15px;
+      font-size:1.5rem;
+      color:#00e5ff;
+    }
+
+    .project-content p{
+      line-height:1.7;
+      margin-bottom:22px;
+      color:#f1f5f9;
+    }
+
+    .project-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .project-btn{
+      padding:12px 18px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.3s;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(to right,#ff00aa,#ff6600);
+    }
+
+    .project-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 25px rgba(255,0,170,.45);
+    }
+
+    .github-btn{
+      background:transparent;
+      border:2px solid #00e5ff;
+      color:#00e5ff;
+    }
+
+    .github-btn:hover{
+      background:#00e5ff;
+      color:black;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .social-icons{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:35px;
+    }
+
+    .social-icons a{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:1.5rem;
+      background:rgba(255,255,255,.08);
+      transition:.3s;
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-6px);
+      background:#ff00aa;
+      box-shadow:0 0 25px #ff00aa;
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.1);
+      color:#ffffffaa;
+    }
+
+    @media(max-width:900px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero-content h1{
+        font-size:3.4rem;
+      }
+
+      .bio-container{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+
+    <div class="logo">NEON.80</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        DESIGNING <br>
+        <span>THE DIGITAL FUTURE</span>
+      </h1>
+
+      <p>
+        Web developer. Creative designer. Builder of futuristic
+        experiences inspired by retro 80’s aesthetics, neon visuals,
+        and modern UI design.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn primary-btn">
+          Explore Projects
+        </a>
+
+        <a href="https://github.com/Nnamdi222"
+        target="_blank"
+        class="btn secondary-btn">
+          GitHub
+        </a>
+
+      </div>
+
+      <!-- HOME FEED -->
+
+      <div class="home-feed">
+
+        <div class="feed-box">
+          <h3>Latest Build</h3>
+          <p>
+            Currently creating modern responsive websites
+            and UI concepts with immersive visuals.
+          </p>
+        </div>
+
+        <div class="feed-box">
+          <h3>Current Focus</h3>
+          <p>
+            Expanding my front-end development skills
+            through creative web projects and portfolio work.
+          </p>
+        </div>
+
+        <div class="feed-box">
+          <h3>Creative Style</h3>
+          <p>
+            Inspired by neon retro themes, futuristic
+            interfaces, and cinematic digital experiences.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BIO -->
+
+  <section id="bio">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="bio-container">
+
+      <div class="bio-text card">
+
+        <h3>Future Web Developer</h3>
+
+        <p>
+          I’m Nnamdi Eneje, a developer focused on building
+          modern websites, engaging user experiences, and
+          visually creative interfaces.
+        </p>
+
+        <p>
+          My goal is to combine design, technology, and
+          creativity to create projects that stand out
+          and leave a lasting impact.
+        </p>
+
+      </div>
+
+      <div class="bio-image">
+        <img
+        src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+        alt="Coding Setup">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Building structured modern websites.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Designing stylish responsive layouts.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-code"></i>
+        <h3>UI / UX</h3>
+        <p>Creating immersive digital experiences.</p>
+      </div>
+
+      <div class="skill-card card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Development</h3>
+        <p>Learning modern technologies and frameworks.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT -->
+
+      <div class="project-card card">
+
+        <!-- SCREENSHOT -->
+        <div class="project-image">
+          <img src="images/project1.jpg" alt="Portfolio Project">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Portfolio Website</h3>
+
+          <p>
+            A retro-inspired futuristic portfolio featuring
+            neon visuals, animated effects, and responsive layouts.
+          </p>
+
+          <div class="project-links">
+
+            <!-- OPEN FILE -->
+            <a href="projects/portfolio-project/index.html"
+            target="_blank"
+            class="project-btn">
+
+              <i class="fa-solid fa-folder-open"></i>
+              Open Project
+
+            </a>
+
+            <!-- GITHUB -->
+            <a href="https://github.com/Nnamdi222"
+            target="_blank"
+            class="project-btn github-btn">
+
+              <i class="fa-brands fa-github"></i>
+              Source Code
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT -->
+
+      <div class="project-card card">
+
+        <div class="project-image">
+          <img src="images/project2.jpg" alt="Class Project">
+        </div>
+
+        <div class="project-content">
+
+          <h3>Class Web Project</h3>
+
+          <p>
+            Responsive coursework projects focused on
+            layouts, animations, and modern styling.
+          </p>
+
+          <div class="project-links">
+
+            <a href="projects/class-project/index.html"
+            target="_blank"
+            class="project-btn">
+
+              <i class="fa-solid fa-folder-open"></i>
+              Open File
+
+            </a>
+
+            <a href="#"
+            class="project-btn github-btn">
+
+              <i class="fa-solid fa-link"></i>
+              Live Demo
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="section-title">Connect With Me</h2>
+
+    <p>
+      Follow my development journey and creative projects.
+    </p>
+
+    <div class="social-icons">
+
+      <a href="https://linkedin.com/in/nnamdi-eneje-8b73b5191"
+      target="_blank">
+
+        <i class="fa-brands fa-linkedin-in"></i>
+
+      </a>
+
+      <a href="https://github.com/Nnamdi222"
+      target="_blank">
+
+        <i class="fa-brands fa-github"></i>
+
+      </a>
+
+      <a href="mailto:your@email.com">
+
+        <i class="fa-solid fa-envelope"></i>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <p>
+      © 2026 Nnamdi Eneje • Retro Neon Portfolio
+    </p>
+
+  </footer>
+
+</body>
+</html>
